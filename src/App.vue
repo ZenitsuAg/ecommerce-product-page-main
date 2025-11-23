@@ -5,6 +5,7 @@ import iconCart from '../images/icon-cart.svg'
 import ImageSlideshow from './components/ImageSlideshow.vue';
 import CartDetails from './components/CartDetails.vue';
 
+import { Analytics } from '@vercel/analytics/vue';
 const count = ref(0)
 
 function increment() {
@@ -30,6 +31,7 @@ console.log(count.value)
 </script>
 
 <template>
+    <Analytics />
     <Nav>
         <div class="relative cursor-pointer " @click="handleClick">
             <img :src="iconCart" alt="cart" >
