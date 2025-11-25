@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import { Analytics } from '@vercel/analytics/vue';
 import Nav from './components/Nav.vue';
 import iconCart from '../images/icon-cart.svg'
 import ImageSlideshow from './components/ImageSlideshow.vue';
 import CartDetails from './components/CartDetails.vue';
 
-import { Analytics } from '@vercel/analytics/vue';
 const count = ref(0)
 
 function increment() {
@@ -30,16 +30,16 @@ function handleClick() {
 console.log(count.value)
 </script>
 
-<template>
+<template >
     <Analytics />
-    <Nav>
+    <Nav @click="showCart = false">
         <div class="relative cursor-pointer " @click="handleClick">
             <img :src="iconCart" alt="cart" >
             <div v-if="count" class="w-5 h-3 text-white bg-orange rounded-full absolute -top-2 -right-2 text-xs font-bold flex justify-center items-center">{{ count }}</div>
         </div>       
     </Nav>
 
-    <main class="font-kumbh lg:grid lg:grid-cols-2 lg:mx-20 lg:py-10">
+    <main @click="showCart = false" class="font-kumbh lg:grid lg:grid-cols-2 lg:mx-20 lg:py-10">
         <section class="lg:py-10">
             <ImageSlideshow />
         </section>
